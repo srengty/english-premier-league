@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.table-auto {
+    @apply border border-collapse;
+    tr td, tr th {
+        @apply border border-gray-400;
+    }
+}
