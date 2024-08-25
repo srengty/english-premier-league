@@ -22,3 +22,7 @@ require __DIR__.'/auth.php';
 
 Route::get('/players', [PlayerController::class, 'index'])->name('players');
 Route::get('/players/create', [PlayerController::class, 'create'])->name('players.create');  
+Route::get('/players/add',function(){
+    App::setLocale('kh');
+    return view('players.add')->with('more','More data');
+});
