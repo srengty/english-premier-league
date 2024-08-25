@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Team;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -22,7 +23,5 @@ require __DIR__.'/auth.php';
 
 Route::get('/players', [PlayerController::class, 'index'])->name('players');
 Route::get('/players/create', [PlayerController::class, 'create'])->name('players.create');  
-Route::get('/players/add',function(){
-    App::setLocale('kh');
-    return view('players.add')->with('more','More data');
-});
+Route::get('/players/add',[PlayerController::class, 'add'])->name('players.add');
+Route::match(['get','post'],'/players/store', [PlayerController::class, 'store'])->name('players.store');
